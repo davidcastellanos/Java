@@ -1,4 +1,4 @@
-package retosUno;
+package semanaUno.retosUno;
 
 public class TuPropiaClase {
     public static void main(String[] args) {

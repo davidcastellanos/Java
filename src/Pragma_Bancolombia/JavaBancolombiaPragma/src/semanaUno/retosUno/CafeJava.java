@@ -1,4 +1,4 @@
-package retosUno;
+package semanaUno.retosUno;
 
 public class CafeJava {
     public static void main(String[] args) {

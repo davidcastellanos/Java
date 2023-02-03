@@ -1,4 +1,4 @@
-package clase1;
+package semanaUno.clase1;
 
 import java.util.Arrays;
 

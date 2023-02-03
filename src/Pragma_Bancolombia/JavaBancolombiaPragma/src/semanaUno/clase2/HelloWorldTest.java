@@ -1,4 +1,4 @@
-package clase2;
+package semanaUno.clase2;
 
 public class HelloWorldTest {
     public static void main(String[] args) {

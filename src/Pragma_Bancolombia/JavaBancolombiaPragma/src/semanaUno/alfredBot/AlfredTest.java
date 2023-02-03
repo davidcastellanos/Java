@@ -1,4 +1,4 @@
-package alfredBot;
+package semanaUno.alfredBot;
 
 public class AlfredTest {
     /*

@@ -1,4 +1,4 @@
-package alfredBot;
+package semanaUno.alfredBot;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 public class AlfredQuotes {
