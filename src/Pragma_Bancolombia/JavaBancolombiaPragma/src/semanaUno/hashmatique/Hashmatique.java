@@ -10,18 +10,17 @@ public class Hashmatique {
                 "Que una gota de luz\n" +
                 "Una estrella fugaz\n" +
                 "Una chispa, tan sólo\n" +
-                "En la edad del cielo");
+                "En la edad del cielo\n\n");
         trackList.put("Telefonía","Noches en vela\n" +
                 "Nombres en clave\n" +
                 "Cuentos secretos\n" +
                 "Versos galantes\n" +
-                "Mil confesiones delirantes");
+                "Mil confesiones delirantes\n\n");
         trackList.put("Tocarte","Quiero que el barrio entero sepa de nuestra obsesión\n" +
-                "Y presumir de ti besándonos en el balcón");
+                "Y presumir de ti besándonos en el balcón\n\n");
         trackList.put("Universos Paralelos","Mi anhelo no está, mi anhelo se fue\n" +
                 "Detrás de ti, siguiéndote\n" +
-                "Por la avenida");
-        //System.out.println(trackList);
+                "Por la avenida\n\n");
 
         return trackList;
 
