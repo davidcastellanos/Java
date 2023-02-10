@@ -3,62 +3,54 @@ package Pragma_Bancolombia_AdvancedJava.semanaDos.baristaChallenge;
 public class TestPedidos {
     public static void main(String[] args) {
 
-        //ARTICULOS
-        Articulo articulo1 = new Articulo();
-        Articulo articulo2 = new Articulo();
-        Articulo articulo3 = new Articulo();
-        Articulo articulo4 = new Articulo();
-
-        //ARTICULOS - DANDO PRECIOS Y NOMBRES
-        articulo1.nombre = "Moka";
-        articulo2.nombre = "Latte";
-        articulo3.nombre = "Café de Goteo";
-        articulo4.nombre = "Capuccino";
-
-        articulo1.precio = 3.3;
-        articulo2.precio = 3.6;
-        articulo3.precio = 3.9;
-        articulo4.precio = 6.3;
-
-        // PEDIDOS
+        // PEDIDOS - 2 INVITADOS
         Pedido pedido1 = new Pedido();
         Pedido pedido2 = new Pedido();
-        Pedido pedido3 = new Pedido();
-        Pedido pedido4 = new Pedido();
 
-        // PEDIDOS - NOMBRES CLIENTES
-        pedido1.nombre = "Cindhuri";
-        pedido2.nombre = "Jimmy";
-        pedido3.nombre = "Noah";
-        pedido4.nombre = "Sam";
+        // PEDIDOS - 3 NOMBRES
+        Pedido pedido3 = new Pedido("David");
+        Pedido pedido4 = new Pedido("Yese");
+        Pedido pedido5 = new Pedido("Pao");
 
-        // IMPRIMIR PEDIDO 1
-        System.out.println("pedido1 = " + pedido1);
+        //Agrega al menos 2 artículos a cada uno de los pedidos usando el método addArticulo
+        Articulo articulo1 = new Articulo("Café expreso", 3.3);
+        Articulo articulo2 = new Articulo("Café Moka", 3.6);
+        Articulo articulo3 = new Articulo("Café Latte", 3.9);
+        Articulo articulo4 = new Articulo("Café Capuccino", 6.9);
+        Articulo articulo5 = new Articulo("Café Donkaccino", 9.6);
 
-        // Agrega el artículo1 a la lista de artículos del pedido2 e incrementa el total del pedido.
-        pedido2.items.add(articulo1);
-        pedido2.totalPedido += articulo1.precio;
+        pedido1.addArticulo(articulo1);
+        pedido1.addArticulo(articulo5);
+        pedido2.addArticulo(articulo2);
+        pedido2.addArticulo(articulo5);
+        pedido3.addArticulo(articulo3);
+        pedido3.addArticulo(articulo4);
+        pedido3.addArticulo(articulo5);
+        pedido4.addArticulo(articulo4);
+        pedido4.addArticulo(articulo5);
+        pedido5.addArticulo(articulo1);
+        pedido5.addArticulo(articulo5);
 
-        // pedido3 pidió un capuchino. Agrega el capuchino a su lista de pedido y a su cuenta.
-        pedido3.items.add(articulo4);
-        pedido3.totalPedido += articulo4.precio;
+        // Prueba los resultados y el método display llamando al método display
+        System.out.println("pedido1.display() = " + pedido1.display());
+        System.out.println("pedido2.display() = " + pedido2.display());
+        System.out.println("pedido3.display() = " + pedido3.display());
+        System.out.println("pedido4.display() = " + pedido4.display());
+        System.out.println("pedido5.display() = " + pedido5.display());
 
-        // pedido4 agregó un latte. Actualiza en consecuencia.
-        pedido4.items.add(articulo2);
-        pedido4.totalPedido += articulo2.precio;
+        // Prueba la funcionalidad de getStatusMessage configurando algunos pedidos para que estén listos
+        // e imprimiendo los mensajes para cada pedido.
 
-        // El pedido de Cindhuri ya está listo. Actualiza su estado.
-        pedido1.listo = true;
+        pedido3.setListo(true);
+        pedido4.setListo(false);
 
-        // Sam pidió más bebidas: 2 latte. Actualiza su pedido también.
-        pedido4.items.add(articulo2);
-        pedido4.items.add(articulo2);
-        pedido4.totalPedido += articulo2.precio;
-        pedido4.totalPedido += articulo2.precio;
-        System.out.println("pedido4.total = " + pedido4.totalPedido);
+        System.out.println("pedido3.isListo() = " + pedido3.isListo());
+        System.out.println("pedido3.getStatusMessage() = " + pedido3.getStatusMessage());
+        System.out.println("pedido4.isListo() = " + pedido4.isListo());
+        System.out.println("pedido4.getStatusMessage() = " + pedido4.getStatusMessage());
 
-        // El pedido de Jimmy ya está listo. Actualiza su estado.
-        pedido2.listo = true;
+
+
 
     }
 }
