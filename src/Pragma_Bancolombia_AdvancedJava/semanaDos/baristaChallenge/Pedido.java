@@ -44,7 +44,7 @@ public class Pedido {
     String display() {
         StringBuilder displayResult = new StringBuilder(String.format("\nNombre Cliente: %s\n", this.getNombre()));
 
-        if (items.size() > 0 || items != null) {
+        if (items.size() > 0 ) {
             for (Articulo articulo : items) {
                 displayResult.append(String.format("%s: $%.2f\n", articulo.getNombre(), articulo.getPrecio()));
             }
@@ -60,7 +60,7 @@ public class Pedido {
 
     double getOrderTotal() {
         double totalOrder = 0;
-        if (items.size() > 0 || items != null) {
+        if (items.size() > 0) {
             for (Articulo articulo : items) {
                 totalOrder += articulo.getPrecio();
             }
