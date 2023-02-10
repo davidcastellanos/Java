@@ -1,22 +1,7 @@
 package Pragma_Bancolombia_AdvancedJava.semanaDos.ordersAndItems;
 
 public class Articulo {
-    private String nombre;
-    private double precio;
+    String nombre;
+    double precio;
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
 }
