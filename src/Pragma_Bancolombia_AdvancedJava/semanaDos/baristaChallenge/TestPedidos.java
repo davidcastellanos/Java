@@ -11,6 +11,7 @@ public class TestPedidos {
         Pedido pedido3 = new Pedido("David");
         Pedido pedido4 = new Pedido("Yese");
         Pedido pedido5 = new Pedido("Pao");
+        Pedido pedido6 = new Pedido("Juanito");
 
         //Agrega al menos 2 artículos a cada uno de los pedidos usando el método addArticulo
         Articulo articulo1 = new Articulo("Café expreso", 3.3);
@@ -31,12 +32,15 @@ public class TestPedidos {
         pedido5.addArticulo(articulo1);
         pedido5.addArticulo(articulo5);
 
+        System.out.println("pedido6.items = " + pedido6.items);
+
         // Prueba los resultados y el método display llamando al método display
         System.out.println("pedido1.display() = " + pedido1.display());
         System.out.println("pedido2.display() = " + pedido2.display());
         System.out.println("pedido3.display() = " + pedido3.display());
         System.out.println("pedido4.display() = " + pedido4.display());
         System.out.println("pedido5.display() = " + pedido5.display());
+        System.out.println("pedido6.display() = " + pedido6.display());
 
         // Prueba la funcionalidad de getStatusMessage configurando algunos pedidos para que estén listos
         // e imprimiendo los mensajes para cada pedido.
