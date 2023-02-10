@@ -4,19 +4,17 @@ import java.util.ArrayList;
 
 public class Pedido {
     private String nombre;
-    private double total = 0;
     private boolean listo;
-    ArrayList<Articulo> items = new ArrayList<>();
+    ArrayList<Articulo> items;
 
     public Pedido() {
-    }
-
-    public Pedido(ArrayList<Articulo> items) {
-        this.items = items;
+        this.nombre = "Invitado";
+        this.items = new ArrayList<>();
     }
 
     public Pedido(String nombre) {
         this.nombre = nombre;
+        this.items = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -27,15 +25,6 @@ public class Pedido {
         this.nombre = nombre;
     }
 
-    public double getOrderTotal() {
-        if (items.size() > 0) {
-            for (Articulo item : items) {
-                this.total += item.getPrecio();
-            }
-        }
-        return this.total;
-    }
-
     public boolean isListo() {
         return listo;
     }
@@ -44,25 +33,19 @@ public class Pedido {
         this.listo = listo;
     }
 
-    public ArrayList<Articulo> getItems() {
-        return items;
-    }
     void addArticulo(Articulo articulo) {
-        this.items.add(articulo);
+        items.add(articulo);
     }
 
     String getStatusMessage() {
-        if (isListo()) {
-            return "Tu pedido está listo";
+        return this.isListo() ? "Tu pedido está listo" : "Gracias por esperar. Tu pedido estará listo pronto";
+    }
 
-        } else {
-            return "Gracias por esperar. Tu pedido estará listo pronto";
+    String display() {
+        for (Articulo articulo : items) {
+
         }
+        return String.format("Nombre Cliente: %s\n" +
+                "", this.getNombre());
     }
-
-    String display(Articulo articulo) {
-        return String.format("Nombre del Cliente: %s\n%s : %.2f",this.nombre, articulo.getNombre(), articulo.getPrecio());
-    }
-
-
 }

@@ -1,13 +1,8 @@
 package Pragma_Bancolombia_AdvancedJava.semanaDos.baristaChallenge;
 
 public class Articulo {
-
     private String nombre;
     private double precio;
-
-    public Articulo() {
-
-    }
 
     public Articulo(String nombre, double precio) {
         this.nombre = nombre;
@@ -15,7 +10,7 @@ public class Articulo {
     }
 
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public void setNombre(String nombre) {
