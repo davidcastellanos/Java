@@ -40,7 +40,7 @@ public class PedidoKiosko {
 
         // Tu código:
         // Crea un nuevo pedido con la cadena de entrada dada
-        Pedido pedido1 = new Pedido("David");
+        Pedido pedido1 = new Pedido(nombre);
         // Muestra el menú al usuario, para que puedan elegir artículos para agregar
         System.out.println(displayMenu());
 
@@ -54,8 +54,12 @@ public class PedidoKiosko {
 
         while(!itemNumber.equals("q")) {
             try {
-                Articulo itemElegido = menuArticulos.get(Integer.parseInt(itemNumber));
-                pedido1.addArticulo(itemElegido);
+                int index = Integer.parseInt(itemNumber);
+
+                if(index < menuArticulos.size()) {
+                    Articulo itemElegido = menuArticulos.get(index);
+                    pedido1.addArticulo(itemElegido);
+                }
 
             } catch (NumberFormatException ex) {
                 if (!itemNumber.equals("q")) {
@@ -66,8 +70,12 @@ public class PedidoKiosko {
             System.out.println("Ingrese un índice de artículo del menú o q para salir:");
             itemNumber = scanner.nextLine().toLowerCase();
         }
+
         // Después de haber completado su pedido, imprime los detalles del pedido
         // como el ejemplo de abajo. Puedes utilizar el método de visualización del pedido
-
+        System.out.println(pedido1.display());
+        pedidos.add(pedido1);
     }
+
+
 }
