@@ -1,4 +1,4 @@
-package listaSimpleEnlazada;
+package Pragma_Bancolombia_AdvancedJava.semanaTres.listaSimpleEnlazada;
 
 public class PruebaLista {
     public static void main(String[] args) {
