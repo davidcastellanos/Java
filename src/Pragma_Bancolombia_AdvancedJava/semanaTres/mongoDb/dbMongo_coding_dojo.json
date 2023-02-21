@@ -1,0 +1,144 @@
+// Crea una base de datos llamada “mi_primera_db”.
+use mi_primera_db
+
+// Crea una colección de estudiantes.
+db.createCollection("estudiantes")
+
+// Insertar 5 documentos con información dada
+
+db.estudiantes.insertMany([
+  {
+    nombre: "Juan",
+    estado_hogar: "California (San Jose Dojo)",
+    número_suerte: 7,
+    cumpleaños: { mes: 5, día: 2, año: 1998 }
+  },
+  {
+    nombre: "Ana",
+    estado_hogar: "Washington (Seattle Dojo)",
+    número_suerte: 4,
+    cumpleaños: { mes: 10, día: 12, año: 2000 }
+  },
+  {
+    nombre: "Pedro",
+    estado_hogar: "California (San Jose Dojo)",
+    número_suerte: 8,
+    cumpleaños: { mes: 3, día: 25, año: 1997 }
+  },
+  {
+    nombre: "Lucía",
+    estado_hogar: "Washington (Seattle Dojo)",
+    número_suerte: 2,
+    cumpleaños: { mes: 8, día: 6, año: 1999 }
+  },
+  {
+    nombre: "Miguel",
+    estado_hogar: "Washington (Seattle Dojo)",
+    número_suerte: 12,
+    cumpleaños: { mes: 11, día: 30, año: 2001 }
+  }
+])
+
+// Obtén a todos los estudiantes.
+db.estudiantes.find({})
+
+// Recupera todos los estudiantes que son de California (San Jose Dojo) o Washington (Seattle Dojo).
+db.estudiantes.find({ $or: [{ estado_hogar: "California (San Jose Dojo)" }, { estado_hogar: "Washington (Seattle Dojo)" }] })
+
+// Obtén a todos los estudiantes cuyo número de la suerte es:
+// mayor que 3
+db.estudiantes.find({ número_suerte: { $gt: 3 } })
+
+// menor que o igual a 10
+db.estudiantes.find({ número_suerte: { $lte: 10 } })
+
+// entre 1 y 9 (inclusivo)
+db.estudiantes.find({ número_suerte: { $gte: 1, $lte: 9 } })
+
+// Agrega un campo para cada colección de estudiantes llamado “intereses” que sea un ARRAY.
+db.estudiantes.updateMany({}, { $set: { intereses: ["codificación", "brunch", "MongoDB"] } })
+
+// Agrega algunos intereses únicos para cada estudiante particular en cada uno de sus arrays de interés
+db.estudiantes.updateOne(
+{ nombre: "Juan" },
+{ $addToSet: { intereses: { $each: ["pintura", "guitarra"] } } }
+)
+
+db.estudiantes.updateOne(
+{ nombre: "Ana" },
+{ $addToSet: { intereses: { $each: ["natación", "basket"] } } }
+)
+
+db.estudiantes.updateOne(
+{ nombre: "Pedro" },
+{ $addToSet: { intereses: { $each: ["futbol", "guitarra"] } } }
+)
+
+db.estudiantes.updateOne(
+{ nombre: "Lucía" },
+{ $addToSet: { intereses: { $each: ["pintura", "escultura"] } } }
+)
+
+db.estudiantes.updateOne(
+{ nombre: "Miguel" },
+{ $addToSet: { intereses: { $each: ["codificación", "viajes"] } } }
+)
+
+// Agrega el interés “impuestos” en el array de interés de alguien.
+db.estudiantes.updateOne(
+{ nombre: "Ana" },
+{ $addToSet: { intereses: "impuestos" } }
+)
+
+// Elimina el interés “impuesto” que acabas de agregar.
+db.estudiantes.updateOne(
+{ nombre: "Ana" },
+{ $pull: { intereses: "impuestos" } }
+)
+
+// Elimina todos los estudiantes que son de California.
+db.estudiantes.deleteMany(
+{ estado_hogar: "California (San Jose Dojo)" }
+)
+
+// Elimina un estudiante por nombre.
+db.estudiantes.deleteOne(
+{ nombre: "Miguel" }
+)
+
+// Elimina un estudiante cuyo número de la suerte sea mayor que 5 (SOLO UNO)
+db.estudiantes.findOneAndDelete(
+{ numero_suerte: { $gt: 5 } }
+)
+
+
+// Agrega un campo para cada colección de estudiantes llamado “número_de_cinturones” y establécelo a 0.
+db.estudiantes.updateMany(
+{},
+{ $set: { numero_de_cinturones: 0 } }
+)
+
+// Incrementa este campo por 1 para todos los estudiantes en Washington (Seattle Dojo).
+db.estudiantes.updateMany(
+{estado_hogar: "Washington (Seattle Dojo)"},
+{$inc: {numero_de_cinturones: 1}}
+)
+
+// Renombra el campo “número_de_cinturones” a “cinturones_ganados”
+db.estudiantes.updateMany(
+{},
+{$rename: {numero_de_cinturones: "cinturones_ganados"}}
+)
+
+// Elimina el campo “número_suerte”.
+db.estudiantes.updateMany(
+{},
+{$unset: {numero_suerte: ""}}
+)
+
+// Agrega un campo “actualizado_en” y fija el valor como la fecha actual.
+db.estudiantes.updateMany(
+{},
+{$currentDate: {actualizado_en: true}}
+)
+
