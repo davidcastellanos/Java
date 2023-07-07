@@ -1,11 +1,11 @@
 package pokemonAbstractasInterfaces;
 
 public abstract class Pokemon {
-    protected int numPokeDex;
-    protected String nombrePokemon;
-    protected float pesoPokemon;
-    protected char generoPokemon;
-    protected int temporadaQueAparece;
+    private int numPokeDex;
+    private String nombrePokemon;
+    private float pesoPokemon;
+    private char generoPokemon;
+    private int temporadaQueAparece;
 
     protected Pokemon(int numPokeDex, String nombrePokemon, float pesoPokemon,
                       char generoPokemon, int temporadaQueAparece) {
